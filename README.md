@@ -12,14 +12,12 @@
 다양한 주제에 맞게 링크를 정리하고 공유함으로써 지식을 쉽게 공유할 수 있습니다.
 
 <br>
-<br>
-
+=
 # iOS 개발 팀원
 | 허원 🧑‍💻                                | 권범철 🧑‍💻                              |
 | ------------------------------------------ | ---------------------------------------- |
 | [@heoblitz](https://github.com/heoblitz) | [@Kimbaechu](https://github.com/Kimbaechu) |
 
-<br>
 <br>
 
 # 프레임 워크
@@ -27,7 +25,6 @@
 - SwiftUI
 - WidgetKit
 
-<br>
 <br>
 
 # 라이브러리
@@ -37,12 +34,10 @@
 - Toast-Swift ( alert )
 
 <br>
-<br>
 
 # 아키텍처
 - MVVM
 
-<br>
 <br>
 
 # 데이터 바인딩 방식
@@ -54,7 +49,6 @@
 MVVM에 적합한 처리방식
 
 <br>
-<br>
 
 # 협업 방식
 
@@ -62,11 +56,10 @@ git-flow ( 코드 리뷰를 거친 PR 만 develop 브랜치에 반영 )
 
 앱 배포시에는 별도의 release 브랜치를 생성함 ( ex. release/1.0.1 )
 
-<img src="images/gitflow_1.png" width="250">  
-<img src="images/gitflow_2.png" width="313">  
-<img src="images/gitflow_3.png" width="386">  
+<img src="images/gitflow_1.png" width="300">  
+<img src="images/gitflow_2.png" width="410">  
+<img src="images/gitflow_3.png" width="500">  
 
-<br>
 <br>
 
 # 목차
