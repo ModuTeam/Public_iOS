@@ -87,7 +87,7 @@ git-flow ( 코드 리뷰를 거친 PR 만 develop 브랜치에 반영 )
 폴더 구조는 Context ( 주요 기능 ) 으로 구분했고,  
 내부에서 MVVM 를 각각 나누었음
 
-<img src="images/folder_1.png" width="250">  
+<img src="images/folder_2.png" width="250">  
   
 <br>
 <br>
