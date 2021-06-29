@@ -32,6 +32,8 @@
 - Kanna ( meta data 파싱 )
 - Kingfisher ( 이미지 캐싱 )
 - Toast-Swift ( alert )
+- RxSwift
+- SwiftLint
 
 <br>
 
@@ -41,10 +43,10 @@
 <br>
 
 # 데이터 바인딩 방식
-- Observable ( RX 로 변경 예정 )
+- RxSwift
 
 도입배경
-복잡한 비동기 처리를 Observable과 Bind를 통해 쉽게 처리한다는 장점 ( Generic Class )
+복잡한 비동기 처리를 쉽게 처리한다는 장점 
 
 MVVM에 적합한 처리방식
 
@@ -120,21 +122,31 @@ struct UsersFolder: Codable {
 <br>
 
 ## 뷰모델 설계
-ViewModel의 Input과 Output을 Protocol 로 구분하여 사용.  
-VC 에서 코드 가독성을 높임
+ViewModel의 Input과 Output을 구분하여 사용.  
+Input은 Replay가 필요없고 state보다 event가 어울리기 때문에 Signal을 사용함
+Output은 UI에 필요하고 state의 성격이 필요하기 때문에 Driver를 주로 사
 
 ```swift
-protocol FolderViewModelInputs {}
-protocol FolderViewModelOutputs {}
+final class SurfingViewModel: ViewModelType {
 
-protocol FolderViewModelType {
-    var inputs: FolderViewModelInputs { get }
-    var outputs: FolderViewModelOutputs { get }
-}
-
-final class FolderViewModel: FolderViewModelInputs, FolderViewModelOutputs, FolderViewModelType {
-	var inputs: FolderViewModelInputs { return self }
-	var outputs: FolderViewModelOutputs { return self }
+    struct Input {
+        let fetchTopTenFolders: Signal<Void>
+        let fetchLikedFolders: Signal<Void>
+    }
+    
+    struct Output {
+        var sections: Driver<[SurfingSectionModel]>
+        var errorMessage: Signal<String>
+    }
+    
+    private let networkManager = RxSurfingManager()
+    private let disposeBag = DisposeBag()
+    private let errorMessage: PublishRelay<String> = PublishRelay()
+    
+    func transform(input: Input) -> Output {
+       ...
+        return Output(sections: sections.asDriver(), errorMessage: errorMessage.asSignal())
+    }
 }
 ```
 
